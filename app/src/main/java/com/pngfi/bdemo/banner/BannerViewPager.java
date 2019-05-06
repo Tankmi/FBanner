@@ -1,0 +1,49 @@
+package com.pngfi.bdemo.banner;
+
+import android.content.Context;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.util.AttributeSet;
+import android.util.Log;
+
+import java.util.List;
+
+public class BannerViewPager extends ViewPager {
+
+    BannerPageAdapter mAdapter;
+    public BannerViewPager(Context context) {
+        super(context);
+    }
+
+    public BannerViewPager(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public void setBannerAdapter( BannerPageAdapter adapter) {
+        mAdapter = adapter;
+        super.setAdapter(mAdapter);
+
+    }
+
+    public <T> void setData(List<T> data) {
+        mAdapter.setData(data);
+        setCurrentItem(0);
+    }
+
+    @Override
+    public void setCurrentItem(int item) {
+        LOG("setCurrentItem");
+        super.setCurrentItem(mAdapter.toPosition(item));
+    }
+
+    @Override
+    public void setCurrentItem(int item, boolean smoothScroll) {
+        LOG("setCurrentItem boolean" + item + " to " + mAdapter.toPosition(item));
+        super.setCurrentItem(mAdapter.toPosition(item),smoothScroll);
+    }
+
+    private void LOG(String data){
+        Log.i("spoort_list","BannerViewPager： " + data);
+    }
+
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="DotIndicator">
+        <attr name="dot" format="reference"/>
+        <attr name="dotMargin" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="BannerViewPager">
+        <attr name="autoTurning" format="boolean"/>
+        <attr name="turningDuration" format="integer"/>
+        <attr name="manualTurning" format="boolean"/>
+        <attr name="smoothScrollDuration" format="integer"/>
+    </declare-styleable>
+</resources>

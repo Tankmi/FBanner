@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:orientation="vertical">
+
+        <com.pngfi.bdemo.banner.DiscoverSlideShowView
+            android:id="@+id/view_slidmenu"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="15dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:orientation="vertical">
+
+            <com.pngfi.banner.BannerViewPager
+                android:id="@+id/banner"
+                android:clipChildren="false"
+                android:layout_width="match_parent"
+                app:autoTurning="false"
+                android:layout_height="175dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="15dp" />
+
+            <com.pngfi.banner.indicator.DotIndicator
+                android:id="@+id/dotView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="21dp"
+                android:layout_marginTop="15dp"
+                app:dot="@drawable/default_bg_dot_view"
+                app:dotMargin="16dp" />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <com.pngfi.banner.BannerViewPager
+                android:id="@+id/second"
+                android:layout_width="match_parent"
+                android:layout_height="194dp" />
+
+            <com.pngfi.banner.indicator.DotIndicator
+                android:id="@+id/dotView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="20dp"
+                app:dot="@drawable/bg_dot_indicator"
+                app:dotMargin="1dp" />
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="194dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="35dp">
+
+            <com.pngfi.banner.BannerViewPager
+                android:id="@+id/thirdBanner"
+                android:layout_width="match_parent"
+                android:layout_height="194dp" />
+
+            <com.pngfi.banner.indicator.NumberIndicator
+                android:id="@+id/numberIndicator"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/bg_number_indicator"
+                android:textColor="@color/colorAccent" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="194dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="40dp">
+
+            <com.pngfi.banner.BannerViewPager
+                android:id="@+id/fourthBanner"
+                app:manualTurning="false"
+                app:smoothScrollDuration="2000"
+                app:turningDuration="4000"
+                android:layout_width="match_parent"
+                android:layout_height="194dp" />
+
+            <com.pngfi.banner.indicator.TitleIndicator
+                android:id="@+id/titleIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="194dp"
+            android:layout_marginTop="35dp">
+
+            <com.pngfi.banner.BannerViewPager
+                android:id="@+id/fifthBanner"
+                android:layout_width="match_parent"
+                android:layout_height="194dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="#55000000"
+                android:layout_height="30dp"
+                android:layout_gravity="bottom">
+
+                <com.pngfi.banner.indicator.TitleIndicator
+                    android:id="@+id/titleIndicator2"
+                    android:layout_width="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp" />
+
+                <com.pngfi.banner.indicator.NumberIndicator
+                    android:id="@+id/numberIndicator2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@android:color/transparent"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/colorAccent" />
+            </RelativeLayout>
+
+        </FrameLayout>
+
+       <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

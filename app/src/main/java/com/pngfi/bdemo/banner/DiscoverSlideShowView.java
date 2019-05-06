@@ -233,26 +233,26 @@ public class DiscoverSlideShowView extends RelativeLayout {
 		@Override
 		public void onPageSelected(int pos) {
 
-			int realPosition = mAdapter.toRealPosition(pos);
 
 			int lastPosition = selectPostion;
 //			selectPostion = mViewPager.getCurrentItem()-1;
 //			selectPostion = realPosition;
-			selectPostion = pos;
+			selectPostion = mAdapter.toRealPosition(pos);
 
 
 //			if(selectPostion == -1){selectPostion = imageValues.size()-1;}
 //			if(selectPostion == imageValues.size()){selectPostion = 0;}
 
 //			LOG("mViewPager.getCurrentItem()   " + mViewPager.getCurrentItem());
-			LOG("selectPostion   " + selectPostion + " realPosition   " + realPosition);
+//			LOG("selectPostion   " + selectPostion + " realPosition   " + realPosition);
+			LOG(  " pos   " + pos + "   selectPostion   " + selectPostion + " lastPosition   " + lastPosition);
 //			LOG("lastPosition   " + lastPosition);
 
-//			ImageView imageview = (ImageView) slideview_dot.getChildAt(selectPostion);
-//			imageview.setImageResource(R.mipmap.iv_slideview_dot_sel);
-//
-//			ImageView imageviewUnSel = (ImageView) slideview_dot.getChildAt(lastPosition);
-//			imageviewUnSel.setImageResource(R.mipmap.iv_slideview_dot_unsel);
+			ImageView imageview = (ImageView) slideview_dot.getChildAt(selectPostion);
+			imageview.setImageResource(R.mipmap.iv_slideview_dot_sel);
+
+			ImageView imageviewUnSel = (ImageView) slideview_dot.getChildAt(lastPosition);
+			imageviewUnSel.setImageResource(R.mipmap.iv_slideview_dot_unsel);
 		}
 	}
 

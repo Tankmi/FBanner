@@ -27,19 +27,21 @@ public class BannerViewPager extends ViewPager {
 
     public <T> void setData(List<T> data) {
         mAdapter.setData(data);
-        setCurrentItem(0);
+        setCurrentItem(1);
     }
 
     @Override
     public void setCurrentItem(int item) {
         LOG("setCurrentItem" + item + "   mAdapter.toPosition(item)  " + mAdapter.toPosition(item));
-        super.setCurrentItem(mAdapter.toPosition(item));
+//        super.setCurrentItem(mAdapter.toPosition(item));
+        super.setCurrentItem(item);
     }
 
     @Override
     public void setCurrentItem(int item, boolean smoothScroll) {
         LOG("setCurrentItem boolean   " + item + " to " + mAdapter.toPosition(item));
-        BannerViewPager.super.setCurrentItem(mAdapter.toPosition(item),smoothScroll);
+//        BannerViewPager.super.setCurrentItem(mAdapter.toPosition(item),smoothScroll);
+        BannerViewPager.super.setCurrentItem(item,smoothScroll);
     }
 
     private void LOG(String data){

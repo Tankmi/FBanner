@@ -216,7 +216,6 @@ public class DiscoverSlideShowView extends RelativeLayout {
 		//0,什么都没做。1正在滑动。2滑动完毕
 		@Override
 		public void onPageScrollStateChanged(int state) {
-			LOG("onPageScrollStateChanged");
 			if (state == ViewPager.SCROLL_STATE_IDLE || state == ViewPager.SCROLL_STATE_DRAGGING) {	//空闲或者滑动中
 				if (mViewPager.getCurrentItem() == mAdapter.getCount() - 1) {
 					mViewPager.setCurrentItem(1,false);
@@ -228,7 +227,6 @@ public class DiscoverSlideShowView extends RelativeLayout {
 
 		@Override
 		public void onPageScrolled(int arg0, float arg1, int arg2) {
-			LOG("onPageScrolled");
 
 		}
 
@@ -247,7 +245,7 @@ public class DiscoverSlideShowView extends RelativeLayout {
 //			if(selectPostion == imageValues.size()){selectPostion = 0;}
 
 //			LOG("mViewPager.getCurrentItem()   " + mViewPager.getCurrentItem());
-			LOG("selectPostion   " + selectPostion);
+			LOG("selectPostion   " + selectPostion + " realPosition   " + realPosition);
 //			LOG("lastPosition   " + lastPosition);
 
 //			ImageView imageview = (ImageView) slideview_dot.getChildAt(selectPostion);

@@ -50,7 +50,7 @@ public class BannerPageAdapter<T> extends PagerAdapter {
      * @param position
      * @return
      */
-    public int toRealPosition2(int position) {
+    public int toRealPosition(int position) {
         if (this.once) {
             return 0;
         } else if (position == this.getCount() - 1) {
@@ -60,13 +60,6 @@ public class BannerPageAdapter<T> extends PagerAdapter {
         }
     }
 
-    public int toRealPosition(int position) {
-        if (position == this.getCount() - 1) {
-            return 0;
-        } else {
-            return position == 0 ? 1 : position + 1;
-        }
-    }
 
     /**
      * 由用户认为的position转换到ViewPager中对应的position
@@ -101,8 +94,8 @@ public class BannerPageAdapter<T> extends PagerAdapter {
         ImageView imageView = view.findViewById(R.id.iv_commodity_picture);
 
         Glide.with(imageView)
-                .load(mData.get(toRealPosition2(position)))
-//                .load(mData.get(position))
+//                .load(mData.get(toRealPosition(position)))
+                .load(mData.get(position))
 //					.apply(options)
                 .into(imageView);
 

@@ -32,14 +32,14 @@ public class BannerViewPager extends ViewPager {
 
     @Override
     public void setCurrentItem(int item) {
-        LOG("setCurrentItem");
+        LOG("setCurrentItem" + item + "   mAdapter.toPosition(item)  " + mAdapter.toPosition(item));
         super.setCurrentItem(mAdapter.toPosition(item));
     }
 
     @Override
     public void setCurrentItem(int item, boolean smoothScroll) {
-        LOG("setCurrentItem boolean" + item + " to " + mAdapter.toPosition(item));
-        super.setCurrentItem(mAdapter.toPosition(item),smoothScroll);
+        LOG("setCurrentItem boolean   " + item + " to " + mAdapter.toPosition(item));
+        BannerViewPager.super.setCurrentItem(mAdapter.toPosition(item),smoothScroll);
     }
 
     private void LOG(String data){

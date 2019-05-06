@@ -42,7 +42,6 @@ public class BannerPageAdapter<T> extends PagerAdapter {
             this.mData.add(first);
             this.mData.add(0, last);
         }
-
         this.notifyDataSetChanged();
     }
 

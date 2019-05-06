@@ -159,7 +159,6 @@ public class DiscoverSlideShowView extends RelativeLayout {
 
 		if (mAdapter ==null){
 			mAdapter = new BannerPageAdapter<String>();
-			mAdapter.setData(imageValues);
 		}
 
 		View viwPagerLayout = LayoutInflater.from(context).inflate(R.layout.layout_discover_first_slideshow, this, true);
@@ -174,6 +173,7 @@ public class DiscoverSlideShowView extends RelativeLayout {
 		mViewPager.setFocusable(true);
 		mViewPager.setBannerAdapter(mAdapter);
 		mViewPager.setOnPageChangeListener(new MyPageChangeListener());
+		mViewPager.setData(imageValues);
 		
 	}
 
@@ -216,6 +216,7 @@ public class DiscoverSlideShowView extends RelativeLayout {
 		//0,什么都没做。1正在滑动。2滑动完毕
 		@Override
 		public void onPageScrollStateChanged(int state) {
+			LOG("onPageScrollStateChanged");
 			if (state == ViewPager.SCROLL_STATE_IDLE || state == ViewPager.SCROLL_STATE_DRAGGING) {	//空闲或者滑动中
 				if (mViewPager.getCurrentItem() == mAdapter.getCount() - 1) {
 					mViewPager.setCurrentItem(1,false);
@@ -227,7 +228,7 @@ public class DiscoverSlideShowView extends RelativeLayout {
 
 		@Override
 		public void onPageScrolled(int arg0, float arg1, int arg2) {
-
+			LOG("onPageScrolled");
 
 		}
 

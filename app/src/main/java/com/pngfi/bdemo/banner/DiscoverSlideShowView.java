@@ -14,6 +14,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -149,6 +150,7 @@ public class DiscoverSlideShowView extends RelativeLayout {
 
 //	private MyPagerAdapter mAdapter;
 	private BannerPageAdapter mAdapter;
+	int pointMargin = 0;
 
 	/**
 	 * 初始化Views等UI
@@ -174,6 +176,21 @@ public class DiscoverSlideShowView extends RelativeLayout {
 		mViewPager.setBannerAdapter(mAdapter);
 		mViewPager.setOnPageChangeListener(new MyPageChangeListener());
 		mViewPager.setData(imageValues);
+
+
+
+
+		if(slideview_dot.getChildCount() > 2) {
+            mViewPager.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    //获得两个圆点之间的距离
+                    pointMargin = slideview_dot.getChildAt(1).getLeft() - slideview_dot.getChildAt(0).getLeft();
+                    LOG("小圆点间距：" + pointMargin);
+                    mViewPager.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                }
+            });
+        }
 		
 	}
 
@@ -232,16 +249,11 @@ public class DiscoverSlideShowView extends RelativeLayout {
 
 		@Override
 		public void onPageSelected(int pos) {
-
-
 			int lastPosition = selectPostion;
 //			selectPostion = mViewPager.getCurrentItem()-1;
 //			selectPostion = realPosition;
 			selectPostion = mAdapter.toRealPosition(pos);
 
-
-//			if(selectPostion == -1){selectPostion = imageValues.size()-1;}
-//			if(selectPostion == imageValues.size()){selectPostion = 0;}
 
 //			LOG("mViewPager.getCurrentItem()   " + mViewPager.getCurrentItem());
 //			LOG("selectPostion   " + selectPostion + " realPosition   " + realPosition);
@@ -251,8 +263,11 @@ public class DiscoverSlideShowView extends RelativeLayout {
 			ImageView imageview = (ImageView) slideview_dot.getChildAt(selectPostion);
 			imageview.setImageResource(R.mipmap.iv_slideview_dot_sel);
 
-			ImageView imageviewUnSel = (ImageView) slideview_dot.getChildAt(lastPosition);
-			imageviewUnSel.setImageResource(R.mipmap.iv_slideview_dot_unsel);
+			if(selectPostion != lastPosition){
+				ImageView imageviewUnSel = (ImageView) slideview_dot.getChildAt(lastPosition);
+				imageviewUnSel.setImageResource(R.mipmap.iv_slideview_dot_unsel);
+			}
+
 		}
 	}
 

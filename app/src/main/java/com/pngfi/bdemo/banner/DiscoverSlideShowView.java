@@ -243,22 +243,23 @@ public class DiscoverSlideShowView extends RelativeLayout {
 		}
 
 		@Override
-		public void onPageScrolled(int arg0, float arg1, int arg2) {
+		public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            //页面滚动时小白点移动的距离，并通过setLayoutParams(params)不断更新其位置
+//            float leftMargin = pointMargin * (position + positionOffset);
+            float leftMargin = pointMargin * (positionOffset);
+            LOG("页面偏移值" + leftMargin);
 
+//            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) slideview_dot.getLayoutParams();
+//            params.leftMargin = (int) leftMargin;
+//            slideview_dot.setLayoutParams(params);
 		}
 
 		@Override
 		public void onPageSelected(int pos) {
 			int lastPosition = selectPostion;
-//			selectPostion = mViewPager.getCurrentItem()-1;
-//			selectPostion = realPosition;
 			selectPostion = mAdapter.toRealPosition(pos);
 
-
-//			LOG("mViewPager.getCurrentItem()   " + mViewPager.getCurrentItem());
-//			LOG("selectPostion   " + selectPostion + " realPosition   " + realPosition);
 			LOG(  " pos   " + pos + "   selectPostion   " + selectPostion + " lastPosition   " + lastPosition);
-//			LOG("lastPosition   " + lastPosition);
 
 			ImageView imageview = (ImageView) slideview_dot.getChildAt(selectPostion);
 			imageview.setImageResource(R.mipmap.iv_slideview_dot_sel);
@@ -270,6 +271,8 @@ public class DiscoverSlideShowView extends RelativeLayout {
 
 		}
 	}
+
+
 
 	/**
 	 * 处理Page的切换逻辑

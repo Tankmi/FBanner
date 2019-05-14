@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="GuideIndicator">
+        <attr name="dotMargin" format="dimension" />
+        <attr name="dotSize" format="dimension" />
+        <attr name="selDot" format="reference" />
+        <attr name="unSelDot" format="reference" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <com.pngfi.bdemo.guide.GuideViewPager
+        android:id="@+id/in_viewpager"
+        android:layout_centerVertical="true"
+        android:background="#096"
+        android:layout_width="match_parent"
+        android:layout_height="170dp">
+    </com.pngfi.bdemo.guide.GuideViewPager>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/rl_dots"
+        android:layout_marginBottom="10dp">
+        <Button
+            android:id="@+id/bt_next"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="立即体验"
+            android:textSize="20sp"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_dots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp">
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/in_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+        <!--app:dot="@drawable/default_bg_dot_view"-->
+        <!--app:dotMargin="16dp"-->
+
+        <com.pngfi.bdemo.guide.indicator.DotIndicator
+            android:id="@+id/dotView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="21dp"
+            android:layout_marginTop="15dp"
+            app:dotMargin="10dp"
+            app:dotSize="5dp"
+            />
+
+        <ImageView
+            android:id="@+id/iv_light_dots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/iv_slideview_dot_sel"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>
